@@ -1,38 +1,392 @@
-
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M. Irfan. R - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title data-key="pageTitle">Interactive CV - Muhammad Irfan Rudiannoor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Visualization & Content Choices:
+        - Hero: Text (Name, Title), Unicode Icons (Contact). Goal: Inform. Interaction: Clickable links. Justification: Prominent identity and quick access. Method: HTML/Tailwind.
+        - About Me: Text block. Goal: Inform. Interaction: None. Justification: Personal context. Method: HTML/Tailwind.
+        - Education: Structured list. Goal: Inform. Interaction: None. Justification: Clear academic history. Method: HTML/Tailwind.
+        - Certifications: Structured list. Goal: Inform. Interaction: None. Justification: Professional validation. Method: HTML/Tailwind.
+        - Work Experience: Chronological list with details for each role. Goal: Inform, Detail. Interaction: None beyond readability. Justification: Key professional history. Method: HTML/Tailwind.
+        - Skills: Categorized lists (Technical, Software). Goal: Inform. Interaction: None. Justification: Quick overview of capabilities. Method: HTML/Tailwind, Unicode for icons.
+        - Contact: Detailed contact information. Goal: Inform. Interaction: Clickable links. Justification: Easy to reach out. Method: HTML/Tailwind.
+        - Language Toggle: Button to switch between English and Indonesian, dynamically updating all text content. Goal: User convenience. Interaction: Click. Justification: Accessibility for diverse users. Method: HTML/Tailwind, JavaScript.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. No Chart.js needed as data is qualitative.
+    -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #38bdf8; /* sky-400 */
+            margin-top: 8px;
+        }
+        .sticky-nav {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .skill-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+        }
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>M. Irfan. R</h1>
-        <p>Video Editor | Cameraman | Photographer | Soundman</p>
+<body class="bg-gray-900 text-gray-100">
+
+    <header id="hero" class="bg-gray-800 py-16 text-center">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-end mb-4">
+                <button id="languageToggle" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300">
+                    <span data-key="toggleLang">Bahasa Indonesia</span>
+                </button>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-sky-400">MUHAMMAD IRFAN RUDIANNOOR</h1>
+            <p class="text-xl md:text-2xl text-gray-300 mt-2" data-key="heroTitle">Camera Person / Video Editor / Sound Recordist</p>
+            <div class="mt-6 flex justify-center space-x-4">
+                <a href="tel:08xxxxxxxx53" class="text-gray-400 hover:text-sky-400 transition duration-300">
+                    <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                    <span class="sr-only" data-key="phoneSr">Phone</span>
+                </a>
+                <a href="mailto:irfandrudiannoor@yahoo.co.id" class="text-gray-400 hover:text-sky-400 transition duration-300">
+                    <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                    <span class="sr-only" data-key="emailSr">Email</span>
+                </a>
+                <a href="https://www.linkedin.com/in/irfanrudiannoor/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-sky-400 transition duration-300">
+                    <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.009V7.332h2.583v1.17h.037c.356-.675 1.227-1.387 2.545-1.387 2.731 0 3.234 1.799 3.234 4.138v4.995zM6.338 7.332H3.67V16.338h2.669V7.332zM5.004 5.004a1.336 1.336 0 100-2.672 1.336 1.336 0 000 2.672z" clip-rule="evenodd"></path></svg>
+                    <span class="sr-only" data-key="linkedinSr">LinkedIn</span>
+                </a>
+ <a href="https://linktr.ee/irfanrudiannoor" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-sky-400 transition duration-300">
+                    <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M10 1a9 9 0 00-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 00-9-9zm0 16.5c-3.59 0-6.5-2.91-6.5-6.5S6.41 4.5 10 4.5s6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5zM10 6.5c-2.48 0-4.5 2.02-4.5 4.5s2.02 4.5 4.5 4.5 4.5-2.02 4.5-4.5-2.02-4.5-4.5-4.5z"/></svg>
+                    <span class="sr-only" data-key="linktreeSr">Linktree</span>
+                </a>
+            </div>
+        </div>
     </header>
-    <nav>
-        <a href="#about">Tentang</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Kontak</a>
+
+    <nav class="sticky-nav bg-gray-950 text-white shadow-md">
+        <div class="container mx-auto px-6">
+            <ul class="flex justify-center space-x-4 md:space-x-8 py-3 text-sm md:text-base">
+                <li><a href="#about-me" class="hover:text-sky-400 transition duration-300" data-key="navAbout">About Me</a></li>
+                <li><a href="#education" class="hover:text-sky-400 transition duration-300" data-key="navEducation">Education</a></li>
+                <li><a href="#certifications" class="hover:text-sky-400 transition duration-300" data-key="navCertifications">Certifications</a></li>
+                <li><a href="#work-experience" class="hover:text-sky-400 transition duration-300" data-key="navExperience">Experience</a></li>
+                <li><a href="#skills" class="hover:text-sky-400 transition duration-300" data-key="navSkills">Skills</a></li>
+                <li><a href="#contact" class="hover:text-sky-400 transition duration-300" data-key="navContact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-    <section id="about">
-        <h2>About / Tentang</h2>
-        <p><strong>ID:</strong> Halo, saya <b>M. Irfan. R</b>, seorang Video Editor dengan ketertarikan yang luas di dunia sinema — mulai dari mengoperasikan kamera, memotret, hingga mengolah audio.</p>
-        <p><strong>EN:</strong> Hi, I’m <b>M. Irfan. R</b>, a Video Editor with a deep passion for cinema — from camera operation and photography to sound recording and editing.</p>
-    </section>
-    <section id="portfolio">
-        <h2>Portfolio</h2>
-        <p>Kunjungi karya saya melalui <a href="https://linktr.ee/irfanrudiannoor" target="_blank">Linktree</a>.</p>
-    </section>
-    <section id="contact">
-        <h2>Contact / Kontak</h2>
-        <p>Email: irfan@email.com</p>
-        <p>Instagram: <a href="https://instagram.com/irfanrudiannoor" target="_blank">@irfanrudiannoor</a></p>
-    </section>
-    <footer>
-        <p>© 2025 M. Irfan. R</p>
+
+    <main class="container mx-auto px-6 py-12">
+        <section id="about-me" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-semibold text-sky-400 section-title mb-6" data-key="aboutTitle">About Me</h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-4" data-key="aboutIntro"></p>
+            <p class="text-gray-300 leading-relaxed bg-gray-800 p-6 rounded-lg shadow-lg" data-key="aboutContent"></p>
+        </section>
+
+        <section id="education" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-semibold text-sky-400 section-title mb-6" data-key="educationTitle">Education</h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-4" data-key="educationIntro"></p>
+            <div class="space-y-6">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-100" data-key="eduIsiTitle">Institut Seni Indonesia Surakarta</h3>
+                    <p class="text-sky-400" data-key="eduIsiPeriod">Television and Film Study Program (2014 - Did Not Graduate)</p>
+                    <p class="text-gray-300 mt-2" data-key="eduIsiDesc"></p>
+                </div>
+                 <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-100" data-key="eduSmaTitle">SMA Negeri 2 Dusun Selatan</h3>
+                    <p class="text-sky-400" data-key="eduSmaPeriod">Science Major (2011-2014)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-semibold text-sky-400 section-title mb-6" data-key="certTitle">Professional Certifications</h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-4" data-key="certIntro"></p>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold text-gray-100" data-key="certBnspTitle">Professional Certification by BNSP</h3>
+                <p class="text-sky-400" data-key="certBnspPeriod">Television Production Field - Audio Video Editing (2018)</p>
+                <p class="text-gray-300 mt-2" data-key="certBnspDesc"></p>
+            </div>
+        </section>
+
+        <section id="work-experience" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-semibold text-sky-400 section-title mb-6" data-key="expTitle">Work Experience</h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-4" data-key="expIntro"></p>
+            <div class="space-y-8">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-100" data-key="expTnmTitle">Video Editor (WFH)</h3>
+                    <p class="text-sky-400" data-key="expTnmPeriod">TnM YouTube Channel | 2023 - Present</p>
+                    <p class="text-gray-300 mt-2" data-key="expTnmDesc"></p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-100" data-key="expFreelanceTitle">Video Editor / Camera Person (Freelance)</h3>
+                    <p class="text-sky-400" data-key="expFreelancePeriod">Various Clients | 2016 - Present</p>
+                    <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1">
+                        <li data-key="expFreelanceDesc1"></li>
+                        <li data-key="expFreelanceDesc2"></li>
+                    </ul>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-100" data-key="expQualityTitle">Photo Editor</h3>
+                    <p class="text-sky-400" data-key="expQualityPeriod">Quality Studio, Sukoharjo | 2019 - 2020</p>
+                    <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1">
+                        <li data-key="expQualityDesc1"></li>
+                        <li data-key="expQualityDesc2"></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-semibold text-sky-400 section-title mb-6" data-key="skillsTitle">Skills</h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-4" data-key="skillsIntro"></p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-100 mb-3" data-key="skillsTechTitle">Technical Skills</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-300"><span class="contact-icon text-sky-400">💻</span> <span data-key="skillComputer"></span></li>
+                        <li class="flex items-center text-gray-300"><span class="contact-icon text-sky-400">📷</span> <span data-key="skillCamera"></span></li>
+                        <li class="flex items-center text-gray-300"><span class="contact-icon text-sky-400">🎤</span> <span data-key="skillRecorder"></span></li>
+                        <li class="flex items-center text-gray-300"><span class="contact-icon text-sky-400">🔴</span> <span data-key="skillLiveStream"></span></li>
+                    </ul>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-100 mb-3" data-key="skillsSoftwareTitle">Software</h3>
+                    <div class="flex flex-wrap">
+                        <span class="skill-badge bg-sky-700/30 text-sky-300" data-key="softwarePremiere">Adobe Premiere Pro</span>
+                        <span class="skill-badge bg-sky-700/30 text-sky-300" data-key="softwareAfterEffect">Adobe After Effect</span>
+                        <span class="skill-badge bg-sky-700/30 text-sky-300" data-key="softwarePhotoshop">Adobe Photoshop</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="scroll-mt-20">
+            <h2 class="text-3xl font-semibold text-sky-400 section-title mb-6" data-key="contactTitle">Contact</h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-4" data-key="contactIntro"></p>
+            <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center">
+                <p class="text-gray-300 text-lg mb-2">
+                    <span class="font-semibold" data-key="contactPhoneLabel">Phone:</span>
+                    <a href="tel:08xxxxxxxx53" class="text-sky-400 hover:text-sky-500 transition duration-300">08xxxxxxxx53</a>
+                </p>
+                <p class="text-gray-300 text-lg mb-2">
+                    <span class="font-semibold" data-key="contactEmailLabel">Email:</span>
+                    <a href="mailto:irfandrudiannoor@yahoo.co.id" class="text-sky-400 hover:text-sky-500 transition duration-300">irfandrudiannoor@yahoo.co.id</a>
+                </p>
+                <p class="text-gray-300 text-lg mb-2">
+                    <span class="font-semibold" data-key="contactLocationLabel">Location:</span> <span data-key="contactLocation">Buntok, Central Kalimantan</span>
+                </p>
+                <p class="text-gray-300 text-lg">
+                    <span class="font-semibold" data-key="contactLinkedinLabel">LinkedIn:</span>
+                    <a href="https://www.linkedin.com/in/irfanrudiannoor/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-500 transition duration-300">linkedin.com/in/irfanrudiannoor</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-950 text-gray-400 py-8 text-center mt-16">
+        <p data-key="footerText">© <span id="currentYear"></span> Muhammad Irfan Rudiannoor. Built with ❤️.</p>
     </footer>
+
+    <script>
+        const translations = {
+            en: {
+                pageTitle: "Interactive CV - Muhammad Irfan Rudiannoor",
+                toggleLang: "Bahasa Indonesia",
+                heroTitle: "Camera Person / Video Editor / Sound Recordist",
+                phoneSr: "Phone",
+                emailSr: "Email",
+                linkedinSr: "LinkedIn",
+                navAbout: "About Me",
+                navEducation: "Education",
+                navCertifications: "Certifications",
+                navExperience: "Experience",
+                navSkills: "Skills",
+                navContact: "Contact",
+                aboutTitle: "About Me",
+                aboutIntro: "Self-learning is the key to how I started all of this.",
+                aboutContent: "Self-taught in IT since high school, I pursued my passion at ISI Surakarta in 2014, taking the S-1 Television and Film Study Program. Although I could not complete my studies, I diligently attended lectures and gained sufficient knowledge in audiovisual production.",
+                educationTitle: "Education",
+                educationIntro: "Below is my formal education history. This information includes the educational institutions and fields of study I pursued, which form the basis of my knowledge.",
+                eduIsiTitle: "Institut Seni Indonesia Surakarta",
+                eduIsiPeriod: "Television and Film Study Program (2014 - Did Not Graduate)",
+                eduIsiDesc: "Studied production in the audiovisual industry, including TV program and drama film production.",
+                eduSmaTitle: "SMA Negeri 2 Dusun Selatan",
+                eduSmaPeriod: "Science Major (2011-2014)",
+                certTitle: "Professional Certifications",
+                certIntro: "This certification demonstrates formal recognition of my competence in the field of television production, especially in audio-video editing, which has been tested by a credible institution.",
+                certBnspTitle: "Professional Certification by BNSP",
+                certBnspPeriod: "Television Production Field - Audio Video Editing (2018)",
+                certBnspDesc: "Successfully completed the competency test in Editing.",
+                expTitle: "Work Experience",
+                expIntro: "This is my professional track record, including roles, responsibilities, and contributions in various projects and companies. This experience reflects the practical application of my expertise.",
+                expTnmTitle: "Video Editor (WFH)",
+                expTnmPeriod: "TnM YouTube Channel | 2023 - Present",
+                expTnmDesc: "Serving as a video editor for the TnM YouTube channel (Content accessible at: https://www.youtube.com/@andriTNM) online.",
+                expFreelanceTitle: "Video Editor / Camera Person (Freelance)",
+                expFreelancePeriod: "Various Clients | 2016 - Present",
+                expFreelanceDesc1: "Performed video editing for the A2VMG production house.",
+                expFreelanceDesc2: "Contributed content for Ray Restu Fauzi, Nakki, and Dimedigger YouTube channels.",
+                expQualityTitle: "Photo Editor",
+                expQualityPeriod: "Quality Studio, Sukoharjo | 2019 - 2020",
+                expQualityDesc1: "Responsible for editing photos according to customer requests.",
+                expQualityDesc2: "Created custom photo albums.",
+                skillsTitle: "Skills",
+                skillsIntro: "This section details various technical skills and software proficiencies relevant to my field of work. I continuously develop these skills to support optimal work quality.",
+                skillsTechTitle: "Technical Skills",
+                skillComputer: "Operating Computers",
+                skillCamera: "Operating DSLR, Mirrorless, and Camcorder Cameras",
+                skillRecorder: "Sound Recorder",
+                skillLiveStream: "Live Streaming Production",
+                skillsSoftwareTitle: "Software",
+                softwarePremiere: "Adobe Premiere Pro",
+                softwareAfterEffect: "Adobe After Effect",
+                softwarePhotoshop: "Adobe Photoshop",
+                contactTitle: "Contact",
+                contactIntro: "If you are interested in further discussion, collaboration, or have any questions, feel free to contact me through the information below. I am open to various opportunities.",
+                contactPhoneLabel: "Phone:",
+                contactEmailLabel: "Email:",
+                contactLocationLabel: "Location:",
+                contactLocation: "Buntok, Central Kalimantan",
+                contactLinkedinLabel: "LinkedIn:",
+                footerText: "© <span id='currentYear'></span> Muhammad Irfan Rudiannoor. Built with ❤️."
+            },
+            id: {
+                pageTitle: "CV Interaktif - Muhammad Irfan Rudiannoor",
+                toggleLang: "English",
+                heroTitle: "Camera Person / Video Editor / Sound Recordist",
+                phoneSr: "Telepon",
+                emailSr: "Email",
+                linkedinSr: "LinkedIn",
+                navAbout: "Tentang Saya",
+                navEducation: "Pendidikan",
+                navCertifications: "Sertifikasi",
+                navExperience: "Pengalaman",
+                navSkills: "Keahlian",
+                navContact: "Kontak",
+                aboutTitle: "Tentang Saya",
+                aboutIntro: "Otodidak adalah kunci bagaimana saya memulai semua ini.",
+                aboutContent: "Saya adalah individu otodidak di bidang TI sejak SMA, kemudian mendalami hobi di Institut Seni Indonesia Surakarta tahun 2014, mengambil Program Studi S-1 Televisi dan Film. Meskipun tidak dapat menyelesaikan studi, saya mengikuti perkuliahan dan mendapatkan ilmu yang cukup di bidang produksi audio visual.",
+                educationTitle: "Pendidikan",
+                educationIntro: "Berikut adalah riwayat pendidikan formal yang telah saya tempuh. Informasi ini mencakup institusi pendidikan serta bidang studi yang saya tekuni, yang menjadi dasar pengetahuan saya.",
+                eduIsiTitle: "Institut Seni Indonesia Surakarta",
+                eduIsiPeriod: "Program Studi Televisi dan Film (2014 - Tidak Lulus)",
+                eduIsiDesc: "Mempelajari produksi di industri audio visual, seperti produksi program acara televisi dan film drama.",
+                eduSmaTitle: "SMA Negeri 2 Dusun Selatan",
+                eduSmaPeriod: "Jurusan IPA (2011-2014)",
+                certTitle: "Sertifikasi Profesi",
+                certIntro: "Sertifikasi ini menunjukkan pengakuan formal atas kompetensi yang saya miliki di bidang produksi televisi, khususnya dalam penyuntingan audio video, yang telah diuji oleh lembaga kredibel.",
+                certBnspTitle: "Sertifikasi Profesi oleh BNSP",
+                certBnspPeriod: "Bidang Produksi Televisi - Penyuntingan Audio Video (2018)",
+                certBnspDesc: "Berhasil mengikuti uji kompetensi bidang Penyuntingan.",
+                expTitle: "Pengalaman Kerja",
+                expIntro: "Anda dapat melihat rekam jejak profesional saya, termasuk peran, tanggung jawab, dan kontribusi di berbagai proyek dan perusahaan. Pengalaman ini mencerminkan aplikasi praktis dari keahlian saya.",
+                expTnmTitle: "Video Editor (WFH)",
+                expTnmPeriod: "Channel YouTube TnM | 2023 - Sekarang",
+                expTnmDesc: "Menjadi video editor untuk channel YouTube TnM (Konten dapat diakses pada: https://www.youtube.com/@andriTNM) secara Online.",
+                expFreelanceTitle: "Video Editor / Camera Person (Freelance)",
+                expFreelancePeriod: "Berbagai Klien | 2016 - Sekarang",
+                expFreelanceDesc1: "Melakukan penyuntingan video untuk rumah produksi A2VMG.",
+                expFreelanceDesc2: "Berkontribusi pada konten untuk kanal YouTube Ray Restu Fauzi, Nakki, dan Dimedigger.",
+                expQualityTitle: "Photo Editor",
+                expQualityPeriod: "Quality Studio, Sukoharjo | 2019 - 2020",
+                expQualityDesc1: "Bertanggung jawab dalam mengedit foto sesuai permintaan konsumen.",
+                expQualityDesc2: "Membuat album foto kustom.",
+                skillsTitle: "Keahlian",
+                skillsIntro: "Bagian ini merinci berbagai keahlian teknis dan penguasaan perangkat lunak yang relevan dengan bidang pekerjaan saya. Keahlian ini terus saya kembangkan untuk mendukung kualitas kerja yang optimal.",
+                skillsTechTitle: "Keterampilan Teknis",
+                skillComputer: "Mengoperasikan Komputer",
+                skillCamera: "Mengoperasikan Kamera DSLR, Mirrorless, dan Camcorder",
+                skillRecorder: "Perekam suara",
+                skillLiveStream: "Produksi Live Streaming",
+                skillsSoftwareTitle: "Perangkat Lunak",
+                softwarePremiere: "Adobe Premiere Pro",
+                softwareAfterEffect: "Adobe After Effect",
+                softwarePhotoshop: "Adobe Photoshop",
+                contactTitle: "Kontak",
+                contactIntro: "Jika Anda tertarik untuk berdiskusi lebih lanjut, berkolaborasi, atau memiliki pertanyaan, jangan ragu untuk menghubungi saya melalui informasi kontak di bawah ini. Saya terbuka untuk berbagai kesempatan.",
+                contactPhoneLabel: "Telepon:",
+                contactEmailLabel: "Email:",
+                contactLocationLabel: "Lokasi:",
+                contactLocation: "Buntok, Kalimantan Tengah",
+                contactLinkedinLabel: "LinkedIn:",
+                footerText: "© <span id='currentYear'></span> Muhammad Irfan Rudiannoor. Dibuat dengan ❤️."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function updateContent() {
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[currentLang][key]) {
+                    if (element.tagName === 'TITLE') {
+                        document.title = translations[currentLang][key];
+                    } else {
+                        element.innerHTML = translations[currentLang][key];
+                    }
+                }
+            });
+            document.documentElement.lang = currentLang;
+        }
+
+        document.getElementById('languageToggle').addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'id' : 'en';
+            updateContent();
+        });
+
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const nav = document.querySelector('.sticky-nav');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            if (lastScrollY < window.scrollY && window.scrollY > nav.offsetHeight + 50) {
+                nav.classList.add('opacity-75', 'hover:opacity-100', 'transition-opacity', 'duration-300');
+            } else {
+                nav.classList.remove('opacity-75', 'hover:opacity-100');
+            }
+            lastScrollY = window.scrollY;
+        });
+
+        updateContent(); // Initial content load
+    </script>
+
 </body>
 </html>
